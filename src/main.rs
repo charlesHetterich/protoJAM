@@ -1,20 +1,65 @@
+/// The main shared/synchronised state of the overall JAM system ([σ] sigma in paper).
+/// TODO : figure out actual types of each of these components
 pub struct State {
-    pub alpha: i32,  // [α] alpha in paper
-    pub beta: i32,   // [β] beta in paper
-    pub gamma: i32,  // [γ] gamma in paper
-    pub delta: i32,  // [δ] delta in paper
-    pub eta: i32,    // [η] eta in paper
-    pub iota: i32,   // [ι] iota in paper
-    pub kappa: i32,  // [κ] kappa in paper
-    pub lambda: i32, // [λ] lambda in paper
-    pub rho: i32,    // [ρ] rho in paper
-    pub tau: i32,    // [τ] tau in paper
-    pub phi: i32,    // [φ] phi in paper
-    pub chi: i32,    // [χ] chi in paper
-    pub psi: i32,    // [ψ] psi in paper
-    pub pi: i32,     // [π] pi in paper
-    pub theta: i32,  // [θ] theta in paper
-    pub xi: i32,     // [ξ] xi in paper
+    ////// CORES DATA
+    //////////////////////////////////////////////////////
+    /// authorization requirement which work done
+    /// on this core must satisfy ([α] alpha in paper)
+    pub alpha: i32,
+
+    /// queue of work packages (?) ([φ] phi in paper)
+    pub phi: i32,
+
+    /// each core's currently asigned *report*, the availability of who's *work-package*
+    /// must yet be assured by a super-majority of validators ([ρ] rho in paper)
+    pub rho: i32,
+
+    ////// BLOCK DATA
+    //////////////////////////////////////////////////////
+    /// recent block data ([β] beta in paper)
+    pub beta: i32,
+
+    /// recent timeslot index ([τ] tau in paper)
+    pub tau: i32,
+
+    //// SEVICE DATA
+    //////////////////////////////////////////////////////
+    /// portion of state dealing with services ([δ] delta in paper)
+    pub delta: i32,
+
+    /// list of identities of privilaged services ([χ] chi in paper)
+    pub chi: i32,
+
+    ////// SAFROLE / VALIDATOR SET DATA
+    //////////////////////////////////////////////////////
+    /// isolated Safrole data ([γ] gamma in paper)
+    pub gamma: i32,
+
+    /// queue of future best validators ([ι] iota in paper)
+    pub iota: i32,
+
+    /// set of best validators ([κ] kappa in paper)
+    pub kappa: i32,
+
+    /// set of archived best validators ([λ] lambda in paper)
+    pub lambda: i32,
+
+    ////// MISC //////
+    //////////////////////////////////////////////////////
+    /// on-chain entropy pool ([η] eta in paper)
+    pub eta: i32,
+
+    /// work-reports ready for accumulation step ([θ] theta in paper)
+    pub theta: i32,
+
+    /// recently accumulated work-packages ([ξ] xi in paper)
+    pub xi: i32,
+
+    /// judgements ([ψ] psi in paper)
+    pub psi: i32,
+
+    /// validator statistics ([π] pi in paper)
+    pub pi: i32,
 }
 
 fn main() {
