@@ -1,3 +1,5 @@
+mod block;
+
 /// The main shared/synchronised state of the overall JAM system ([σ] sigma in paper).
 /// TODO : figure out actual types of each of these components
 pub struct State {
@@ -63,5 +65,10 @@ pub struct State {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let block = block::Block {
+        header: block::Header {},
+        extrinsics: block::Extrinsics {},
+    };
+    println!("Hello, {:?}!", block.header);
+    println!("Hello, {:?}!", block.extrinsics);
 }
