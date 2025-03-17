@@ -1,74 +1,54 @@
 mod block;
+mod cryptography;
+mod policy;
+mod state;
 
-/// The main shared/synchronised state of the overall JAM system ([σ] sigma in paper).
-/// TODO : figure out actual types of each of these components
-pub struct State {
-    ////// CORES DATA
-    //////////////////////////////////////////////////////
-    /// authorization requirement which work done
-    /// on this core must satisfy ([α] alpha in paper)
-    pub alpha: i32,
+mod util {
+    pub type Unknown = i32;
 
-    /// queue of work packages (?) ([φ] phi in paper)
-    pub phi: i32,
+    /// represents the time in milliseconds since the *JAM Common Era*, **12:00 UTC January 1, 2025**
+    pub type Timeslot = u64;
+}
 
-    /// each core's currently asigned *report*, the availability of who's *work-package*
-    /// must yet be assured by a super-majority of validators ([ρ] rho in paper)
-    pub rho: i32,
+use block::Block;
+use policy::Policy;
+use state::State;
 
-    ////// BLOCK DATA
-    //////////////////////////////////////////////////////
-    /// recent block data ([β] beta in paper)
-    pub beta: i32,
-
-    /// recent timeslot index ([τ] tau in paper)
-    pub tau: i32,
-
-    //// SEVICE DATA
-    //////////////////////////////////////////////////////
-    /// portion of state dealing with services ([δ] delta in paper)
-    pub delta: i32,
-
-    /// list of identities of privilaged services ([χ] chi in paper)
-    pub chi: i32,
-
-    ////// SAFROLE / VALIDATOR SET DATA
-    //////////////////////////////////////////////////////
-    /// isolated Safrole data ([γ] gamma in paper)
-    pub gamma: i32,
-
-    /// queue of future best validators ([ι] iota in paper)
-    pub iota: i32,
-
-    /// set of best validators ([κ] kappa in paper)
-    pub kappa: i32,
-
-    /// set of archived best validators ([λ] lambda in paper)
-    pub lambda: i32,
-
-    ////// MISC //////
-    //////////////////////////////////////////////////////
-    /// on-chain entropy pool ([η] eta in paper)
-    pub eta: i32,
-
-    /// work-reports ready for accumulation step ([θ] theta in paper)
-    pub theta: i32,
-
-    /// recently accumulated work-packages ([ξ] xi in paper)
-    pub xi: i32,
-
-    /// judgements ([ψ] psi in paper)
-    pub psi: i32,
-
-    /// validator statistics ([π] pi in paper)
-    pub pi: i32,
+struct JAM {
+    state: State,
+    block_level_policy: Policy,
 }
 
 fn main() {
+    let mut state = state::State::default();
+    println!("state: {:?}", state.alpha);
+    println!("state: {:?}", state.phi);
+    println!("state: {:?}", state.rho);
+    println!("state: {:?}", state.beta);
+    println!("state: {:?}", state.tau);
+    println!("state: {:?}", state.delta);
+    println!("state: {:?}", state.chi);
+    println!("state: {:?}", state.gamma);
+    println!("state: {:?}", state.iota);
+    println!("state: {:?}", state.current_validator_set);
+    println!("state: {:?}", state.gamma);
+    println!("state: {:?}", state.lambda);
+    println!("state: {:?}", state.eta);
+    println!("state: {:?}", state.theta);
+    println!("state: {:?}", state.xi);
+    println!("state: {:?}", state.psi);
+    println!("state, {:?}!", state.pi);
+
     let block = block::Block {
-        header: block::Header {},
-        extrinsics: block::Extrinsics {},
+        header: block::Header::default(),
+        extrinsics: block::Extrinsics::default(),
     };
     println!("Hello, {:?}!", block.header);
     println!("Hello, {:?}!", block.extrinsics);
+
+    let policy = policy::Policy {
+        transition_function: |state: &mut State, _: &Block| {},
+    };
+
+    (policy.transition_function)(&mut state, &block);
 }
