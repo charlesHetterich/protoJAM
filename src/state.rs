@@ -37,13 +37,13 @@ pub struct State {
     ////// SAFROLE / VALIDATOR SET DATA
     //////////////////////////////////////////////////////
     /// isolated Safrole data ([γ] gamma in paper)
-    pub gamma: i32,
+    pub safrole_core_state: i32,
 
     /// queue of future best validators ([ι] iota in paper)
     pub iota: i32,
 
     /// set of best (current) validators ([κ] kappa in paper)
-    pub current_validator_set: i32,
+    pub active_validator_set: i32,
 
     /// set of archived best validators ([λ] lambda in paper)
     pub lambda: i32,

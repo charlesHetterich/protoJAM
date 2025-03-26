@@ -1,6 +1,7 @@
 mod block;
 mod cryptography;
 mod policy;
+mod safrole;
 mod state;
 
 mod util {
@@ -28,10 +29,9 @@ fn main() {
     println!("state: {:?}", state.tau);
     println!("state: {:?}", state.delta);
     println!("state: {:?}", state.chi);
-    println!("state: {:?}", state.gamma);
+    println!("state: {:?}", state.safrole_core_state);
     println!("state: {:?}", state.iota);
     println!("state: {:?}", state.current_validator_set);
-    println!("state: {:?}", state.gamma);
     println!("state: {:?}", state.lambda);
     println!("state: {:?}", state.eta);
     println!("state: {:?}", state.theta);

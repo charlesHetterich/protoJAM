@@ -3,14 +3,37 @@ This repository is a personal learning resource to aid my complete understanding
 ## Definitions
 
 ## Sets
+
+### General
 $ \mathbb{Y} $: the set of octet strings (byte arrays) of arbitrary length. $\mathbb{Y}_{n}$ denotes the subset of byte arrays of length $n$.
 
-$ \mathbb{H} $: the set of 256-bit (32-byte) values expected to be arrived at through a cryptographic function (equivalent to $\mathbb{Y}_{32}$).
+
+$ \mathbb{H} $: the set of 256-bit (32-byte) values expected to be arrived at through a cryptographic function (equivalent to $\mathbb{Y}_{32}$) .
+
+### Cryptographic Sets
+
+**ED25519**
+- $ \mathbb{E}_k  \langle m \rangle \subset \mathbb{Y}_{64}$ : set of valid Ed25519 signatures made through knowledge of a secret key whose public key counterpart is $k$, and who's message is $m$
+
+- $ \mathbb{H}_E \subset \mathbb{Y}_{32}$ : set of valid Ed25519 public keys
+
+**BLS**
+- $ \mathbb{Y}_{BLS} \subset \mathbb{Y}_{144} $ : set of public keys for the BLS signature scheme
+
+**Bandersnatch**
+- $ \mathbb{H}_B \subset \mathbb{Y}_{32} $ : set of valid Bandersnatch public keys
+- $ \mathbb{F}^{m \in \mathbb{Y}}_{k \in \mathbb{H}_B} \langle x \in \mathbb{Y}\rangle \subset\ \mathbb{Y}_{96}$ : the set of valid singly-contextualized signatures of utilizing the secret counterpart to the public key k, some context $x$ and message $m$.
+- $\mathbb{Y}_R \subset \mathbb{Y}_{144}$ : the set of valid Bandersnatch roots
+- $\overline{\mathbb{F}}^{m \in \mathbb{Y}}_{k \in \mathbb{Y}_R} \langle x \in \mathbb{Y}\rangle \subset\ \mathbb{Y}_{784}$ : the set of valid Bandersnatch RingVRF deterministic singly-contextualized proofs of knowledge of a secret within some set of secrets identified by some root in the set of valid *roots* $\mathbb{Y}_R$.
+
+### Jam Datastructure Sets
+$\mathbb{C}$: the set of *tickets*, which is a tuple of a verifiably random ticket identifier (a hash) and the ticket's entry-index (a number)
+
+$\mathbb{K}$: set of validator key tuples
+
 
 
 ## Functions
-
-
 
 #### Cryptography functions
 $\mathcal{H}(m \in \mathbb{Y}) \to \mathbb{H}$ : [Blake2b](https://www.rfc-editor.org/info/rfc7693) 256-bit hash function
