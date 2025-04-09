@@ -57,3 +57,7 @@ $\mathcal{T}$ : gives time relative to the *JAM Common Era*, **12:00 UTC January
 
 ## General Notation
 ...
+
+### Resources
+- [JAM grey paper](https://graypaper.com/graypaper.pdf)
+- [ELVES paper](https://eprint.iacr.org/2024/961)
