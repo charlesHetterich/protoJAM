@@ -1,9 +1,9 @@
 use crate::block::Block;
-
+use crate::generics::Config;
 /// The main shared/synchronised state of the overall JAM system ([σ] sigma in paper).
 /// TODO : figure out actual types of each of these components
 #[derive(Debug, Default)]
-pub struct State {
+pub struct State<T: Config> {
     ////// CORES DATA
     //////////////////////////////////////////////////////
     /// authorization requirement which work done
@@ -21,7 +21,7 @@ pub struct State {
     //////////////////////////////////////////////////////
     /// recent block data ([β] beta in paper)
     /// is this where we store 24-hour history of ancestor headers, $\bold{A}$?
-    pub beta: Vec<Block>,
+    pub beta: Vec<Block<T>>,
 
     /// recent timeslot index ([τ] tau in paper)
     pub tau: i32,
@@ -65,3 +65,13 @@ pub struct State {
     /// validator statistics ([π] pi in paper)
     pub pi: i32,
 }
+
+// State as given by (https://polkadot-blockchain-academy.github.io/pba-content/current/syllabus/6-Polkadot/14-jam-math-to-code-slides.html#/9)
+// struct State {
+//     authorizer_pool: Vec<Vec<Hash>>,         // α
+//     recent_history: RecentHistory,           // β
+//     safrole: Safrole,                        // γ
+//     services: HashMap<u64, ServiceAccount>,  // δ
+//     entropy_pool: EntropyPool,               // η
+//     ...
+// }

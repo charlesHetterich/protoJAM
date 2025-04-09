@@ -5,24 +5,24 @@ This repository is a personal learning resource to aid my complete understanding
 ## Sets
 
 ### General
-$ \mathbb{Y} $: the set of octet strings (byte arrays) of arbitrary length. $\mathbb{Y}_{n}$ denotes the subset of byte arrays of length $n$.
+$\mathbb{Y}$: the set of octet strings (byte arrays) of arbitrary length. $\mathbb{Y}_{n}$ denotes the subset of byte arrays of length $n$.
 
 
-$ \mathbb{H} $: the set of 256-bit (32-byte) values expected to be arrived at through a cryptographic function (equivalent to $\mathbb{Y}_{32}$) .
+$\mathbb{H}$: the set of 256-bit (32-byte) values expected to be arrived at through a cryptographic function (equivalent to $\mathbb{Y}_{32}$) .
 
 ### Cryptographic Sets
 
 **ED25519**
-- $ \mathbb{E}_k  \langle m \rangle \subset \mathbb{Y}_{64}$ : set of valid Ed25519 signatures made through knowledge of a secret key whose public key counterpart is $k$, and who's message is $m$
+- $\mathbb{E}_k  \langle m \rangle \subset \mathbb{Y}_{64}$ : set of valid Ed25519 signatures made through knowledge of a secret key whose public key counterpart is $k$, and who's message is $m$
 
-- $ \mathbb{H}_E \subset \mathbb{Y}_{32}$ : set of valid Ed25519 public keys
+- $\mathbb{H}_E \subset \mathbb{Y}_{32}$ : set of valid Ed25519 public keys
 
 **BLS**
-- $ \mathbb{Y}_{BLS} \subset \mathbb{Y}_{144} $ : set of public keys for the BLS signature scheme
+- $\mathbb{Y}_{BLS} \subset \mathbb{Y}_{144}$ : set of public keys for the BLS signature scheme
 
 **Bandersnatch**
-- $ \mathbb{H}_B \subset \mathbb{Y}_{32} $ : set of valid Bandersnatch public keys
-- $ \mathbb{F}^{m \in \mathbb{Y}}_{k \in \mathbb{H}_B} \langle x \in \mathbb{Y}\rangle \subset\ \mathbb{Y}_{96}$ : the set of valid singly-contextualized signatures of utilizing the secret counterpart to the public key k, some context $x$ and message $m$.
+- $\mathbb{H}_B \subset \mathbb{Y}_{32}$ : set of valid Bandersnatch public keys
+- $\mathbb{F}^{m \in \mathbb{Y}}_{k \in \mathbb{H}_B} \langle x \in \mathbb{Y}\rangle \subset\ \mathbb{Y}_{96}$ : the set of valid singly-contextualized signatures of utilizing the secret counterpart to the public key k, some context $x$ and message $m$.
 - $\mathbb{Y}_R \subset \mathbb{Y}_{144}$ : the set of valid Bandersnatch roots
 - $\overline{\mathbb{F}}^{m \in \mathbb{Y}}_{k \in \mathbb{Y}_R} \langle x \in \mathbb{Y}\rangle \subset\ \mathbb{Y}_{784}$ : the set of valid Bandersnatch RingVRF deterministic singly-contextualized proofs of knowledge of a secret within some set of secrets identified by some root in the set of valid *roots* $\mathbb{Y}_R$.
 
@@ -51,7 +51,7 @@ $\mathcal{E}_{U}(\bold{H}) \to \mathbb{Y}$ : serialization codec specific to the
 
 
 #### Blockchain
-$ P(\bold{H})$ : mapping from one block header to its parent block header
+$P(\bold{H})$ : mapping from one block header to its parent block header
 
 $\mathcal{T}$ : gives time relative to the *JAM Common Era*, **12:00 UTC January 1, 2025**
 
@@ -59,10 +59,12 @@ $\mathcal{T}$ : gives time relative to the *JAM Common Era*, **12:00 UTC January
 ...
 
 ### Resources
+- [JAM Reader](https://graypaper.fluffylabs.dev/#/68eaa1f)
 - [JAM grey paper](https://graypaper.com/graypaper.pdf)
 - [ELVES paper](https://eprint.iacr.org/2024/961)
 - [Advice slides #1](https://polkadot-blockchain-academy.github.io/pba-content/current/syllabus/6-Polkadot/15-JAM-how-to-start-slides.html#/)
 - [Advice slides #2](https://polkadot-blockchain-academy.github.io/pba-content/current/syllabus/6-Polkadot/14-jam-math-to-code-slides.html#/)
+- [Milestones](https://github.com/w3f/jam-milestone-delivery)
 
 ### Diagrams
 
