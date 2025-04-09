@@ -61,3 +61,4 @@ $\mathcal{T}$ : gives time relative to the *JAM Common Era*, **12:00 UTC January
 ### Resources
 - [JAM grey paper](https://graypaper.com/graypaper.pdf)
 - [ELVES paper](https://eprint.iacr.org/2024/961)
+- [Advice slides](https://polkadot-blockchain-academy.github.io/pba-content/current/syllabus/6-Polkadot/15-JAM-how-to-start-slides.html#/)
